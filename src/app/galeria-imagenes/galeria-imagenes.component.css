@@ -1,0 +1,55 @@
+.image-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-card .card-body {
+  padding: 0; /* Elimina el padding del cuerpo de la tarjeta para que la imagen cubra todo el espacio */
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para mejor legibilidad */
+  color: #fff; /* Texto blanco */
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 0.5s ease-in-out; /* Hace la transición un poco más suave */
+  opacity: 0; /* Inicia invisible */
+}
+
+.image-card:hover .image-overlay {
+  transform: translateY(0);
+  opacity: 1; /* Hace el overlay completamente visible al hacer hover */
+}
+
+.image-title, .image-description {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.image-card:hover .image-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s; /* Retrasa la animación del título para que aparezca después del overlay */
+}
+
+.image-card:hover .image-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s; /* Retrasa la animación de la descripción para que aparezca después del título */
+}
+
+.image-title {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 0 0 10px;
+}
+
+.image-description {
+  font-size: 14px;
+  padding: 10px;
+}
